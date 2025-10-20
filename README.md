@@ -33,3 +33,5 @@ Sistema completo para gerenciamento de produtos e estoque de uma loja.
 ```bash
 git clone https://github.com/seu-usuario/harity-controle-estoque.git
 cd harity-controle-estoque
+
+Desenvolvido com ❤️ para o controle eficiente de estoque
