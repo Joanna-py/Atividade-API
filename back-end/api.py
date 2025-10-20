@@ -11,7 +11,7 @@ def home():
 
 @app.get("/catalogo")
 def catalogo():
-    produtos = funcao.listar.products()
+    produtos = funcao.listar_products()
     lista = []
     for produto in produtos:
         lista.append({
@@ -25,25 +25,24 @@ def catalogo():
 
 @app.post("/produtos")
 def adicionar_produtos(nome: str, categoria: str, preco: int, quantidade: int):
-    funcao.adicionar_filme(nome, categoria, preco, quantidade)
+    funcao.criar_produto(nome, categoria, preco, quantidade)
     return {"mensagem": "Produto adicionado com sucesso!"}
 
 @app.put("/produtos/{id_produto}")
-def atualizar_produto(id_produtos: int, novo_preco: int):
-    produtos = funcao.buscar_products(id_produtos)
-    if produtos:
-        funcao.atualizar_products(id_produtos, novo_preco)
-        return {"mensagem": "Preco atualizado com sucesso"}
-    else:
-        return {"erro": "Produto não encontrado"}
+def atualizar_preco(id_produto: int, novo_preco: float):
+    produto = funcao.atualizar_products(id_produto, novo_preco)
+    if produto:
+        funcao.atualizar_preco(id_produto, novo_preco)
+        return {"mensagem": "Preço atualizado"}
+    return {"erro": "Produto não encontrado"}
     
 
 @app.delete("/produtos/{id_produtos}")
 def deletar_produtos(id_produtos: int):
-    produtos = funcao.buscar_products(id_produtos)
-    if produtos:
-        funcao.deletar_produtos(id_produtos)
-        return {"mensagem": "Produto deletado com sucesso!"}
-    else:
-        return {"erro": "Produto não encontrado!"}
+     produtos = funcao.listar_products()
+     if produtos:
+         funcao.deletar_produto(id_produtos)
+         return {"mensagem": "Produto deletado com sucesso!"}
+     else:
+         return {"erro": "Produto não encontrado!"}
     

@@ -5,12 +5,12 @@ def criar_tabela():
     if conexao:
         try:
             cursor.execute("""
-                CREATE TABLE IF NOT EXISTS movies (
+                CREATE TABLE IF NOT EXISTS produtos (
                     id SERIAL PRIMARY KEY,
-                    titulo TEXT NOT NULL,
-                    genero TEXT NOT NULL,
-                    ano INTEGER NOT NULL,
-                    avaliacao REAL       
+                    nome TEXT NOT NULL,
+                    categoria TEXT NOT NULL,
+                    preco INTEGER NOT NULL,
+                    quantidade REAL       
                     )
                            
                 """)
@@ -29,7 +29,7 @@ def criar_produto(nome, categoria, preco, quantidade):
     if conexao:
         try:
             cursor.execute(
-                "INSERT INTO products (nome, categoria, preco, quantidade) VALUES (%s, %s, %s, %s)",
+                "INSERT INTO produtos (nome, categoria, preco, quantidade) VALUES (%s, %s, %s, %s)",
                 (nome, categoria, preco, quantidade)
             )
             conexao.commit()
@@ -43,14 +43,14 @@ def listar_products():
     conexao, cursor = conectar()
     if conexao:
         try:
-            
-                cursor.execute(
-                    "SELECT * FROM products ORDER BY id"
+            cursor.execute(
+                "SELECT * FROM produtos ORDER BY id"
 
             )
-                return cursor.fetchall()
+            return cursor.fetchall()
         except Exception as erro:
             print(f"Erro ao inserir {erro}")
+            return []
         finally:
             cursor.close()
             conexao.close()
@@ -60,7 +60,7 @@ def atualizar_products(id_produtos, novo_preco):
     if conexao:
         try:
             cursor.execute(
-                "UPDATE movies SET avaliacao = %s WHERE id = %s",
+                "UPDATE produtos SET preco = %s WHERE id = %s",
                 (novo_preco, id_produtos)
             )
             conexao.commit()
@@ -75,7 +75,7 @@ def deletar_produto(id_produto):
     if conexao:
         try:
             cursor.execute(
-                    "DELETE FROM movies WHERE id = %s", (id_produto,)
+                    "DELETE FROM produtos WHERE id = %s", (id_produto,)
             )
             conexao.commit()
         except Exception as erro:
