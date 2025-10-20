@@ -19,7 +19,7 @@ Sistema completo para gerenciamento de produtos e estoque de uma loja.
 
 - **Back-end:** FastAPI, Python, MySQL Connector
 - **Front-end:** Streamlit, Requests
-- **Banco de Dados:** MySQL
+- **Banco de Dados:** PgAdmin
 - **Servidor:** Uvicorn
 
 ## 🚀 Instalação e Execução
@@ -33,5 +33,7 @@ Sistema completo para gerenciamento de produtos e estoque de uma loja.
 ```bash
 git clone https://github.com/Joanna.py/harity-controle-estoque.git
 cd harity-controle-estoque
+
+### 
 
 Desenvolvido com ❤️ para o controle eficiente de estoque
