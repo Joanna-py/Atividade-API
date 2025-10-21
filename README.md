@@ -5,7 +5,7 @@ Sistema completo para gerenciamento de produtos e estoque de uma loja.
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)
-![MySQL](https://img.shields.io/badge/MySQL-8.0+-orange.svg)
+
 
 ## 📋 Funcionalidades
 
