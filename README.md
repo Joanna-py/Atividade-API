@@ -17,7 +17,7 @@ Sistema completo para gerenciamento de produtos e estoque de uma loja.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Back-end:** FastAPI, Python, MySQL Connector
+- **Back-end:** FastAPI, Python
 - **Front-end:** Streamlit, Requests
 - **Banco de Dados:** PgAdmin
 - **Servidor:** Uvicorn
